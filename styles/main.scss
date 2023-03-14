@@ -1,0 +1,13 @@
+body {
+    position: relative;   
+    
+    .block {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        box-sizing: border-box;
+        background: center no-repeat url(../img/8jo5_ur03_210531.jpg);
+        background-size: cover;
+    }
+
+}
