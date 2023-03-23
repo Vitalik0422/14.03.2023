@@ -15,13 +15,21 @@ let houseArr = [
 const renderDiv = () => {
     block.innerHTML = '';
     for (let i = 0; i < houseArr.length; i++) {
-        houseArr[i].posValX = parseInt(Math.random() * 300)
-        houseArr[i].posValY = parseInt(Math.random() * 1000)
+        houseArr[i].posValX = parseInt(Math.random() * window.outerHeight - 200)
+        houseArr[i].posValY = parseInt(Math.random() * window.outerWidth - 200) 
+        if(houseArr[i].posValX < 0  || houseArr[i].posValY < 0){
+            houseArr[i].posValX = 0
+            houseArr[i].posValY = 0   
+        }  
         block.innerHTML += `<div class="house ${houseArr[i].dog}" style = "top:${houseArr[i].posValX}px; left:${houseArr[i].posValY}px"></div>`
     }
     for (let i = 0; i < dogArr.length; i++) {
-        dogArr[i].posValX = parseInt(Math.random() * 300)
-        dogArr[i].posValY = parseInt(Math.random() * 1000)
+        dogArr[i].posValX = parseInt(Math.random() * window.outerHeight - 200)
+        dogArr[i].posValY = parseInt(Math.random() * window.outerWidth - 200)
+        if(dogArr[i].posValX < 0  || dogArr[i].posValY < 0){
+            dogArr[i].posValX = 0
+            dogArr[i].posValY = 0   
+        }  
         block.innerHTML += `<div class="tets ${dogArr[i].dog}" style = "top:${dogArr[i].posValX}px; left:${dogArr[i].posValY}px"></div>`
     }
     return block.innerHTML;
@@ -94,7 +102,6 @@ const rend = (value) => {
 
 const rendInHouse = (value) => {
         if ((houseArr[0].posValX - 100) < value.posValX && (houseArr[0].posValX + 100) > value.posValX && (houseArr[0].posValY - 100) < value.posValY && (houseArr[0].posValY + 100) > value.posValY) {
-           console.log('собака в дома')
            const gameres = document.querySelector('.gamereset')
            gameres.classList.add('on')
         }
